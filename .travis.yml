@@ -23,7 +23,7 @@ deploy:
   file: app/build/outputs/apk/release/app-release.apk
   skip_cleanup: true
   on:
-  tags: true
+    tags: true
 
 env:
   global:
