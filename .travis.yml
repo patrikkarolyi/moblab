@@ -10,11 +10,11 @@ android:
   - tools
   - extra-google-googleplayservices
   - extra-google-m2repository
-    - extra-android-m2repository
-    - addon-google_apis-google-28
-    - sys-img-armeabi-v7a-android-21
+  - extra-android-m2repository
+  - addon-google_apis-google-28
+  - sys-img-armeabi-v7a-android-21
 
-  before_install:
+before_install:
   - yes | sdkmanager "platforms;android-28"
 
   deploy:
@@ -36,12 +36,12 @@ before_script:
 - adb shell input keyevent 82 &
 
 script: ./gradlew :app:build
-script: ./gradlew :app:build :app:connectedDebugAndroidTest
+
 
 notifications:
   email:
-  recipients:
-  - myemail@address.com
-  on_success: always
-  on_failure: always
+    recipients:
+    - myemail@address.com
+    on_success: always
+    on_failure: always
 
