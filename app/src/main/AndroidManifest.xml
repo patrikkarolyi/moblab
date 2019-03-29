@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.example.mobsoft">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.example.mobsoft">
+
+
+    <!--TODO rename project-->
 
     <application
             android:name=".VergeReaderApplication"
@@ -18,5 +22,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
