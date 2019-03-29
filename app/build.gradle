@@ -26,17 +26,45 @@ kapt {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation kotlinDependencies.stdlib
 
-    implementation 'com.google.dagger:dagger-android:2.15'
-    kapt 'com.google.dagger:dagger-android-processor:2.15'
+    implementation supportDependencies.appcompat
+    implementation supportDependencies.cardview
+    implementation supportDependencies.design
+    implementation supportDependencies.constraint_layout
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation toolkitDependencies.okhttp
+    implementation toolkitDependencies.logging
+    implementation toolkitDependencies.retrofit
+    implementation toolkitDependencies.retrofitGsonConverter
+    implementation toolkitDependencies.gson
+    implementation toolkitDependencies.glide
+    implementation toolkitDependencies.eventbus
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.compiler
+    api daggerDependencies.annotation
+
+    testImplementation unitTestDependencies.junit
+    testImplementation unitTestDependencies.robolectric
+    testImplementation unitTestDependencies.mockito
+
+    testImplementation daggerDependencies.dagger
+    testImplementation daggerDependencies.annotation
+    kaptTest daggerDependencies.compiler
+
+    androidTestImplementation instrumentationTestDependencies.espresso
+    androidTestImplementation instrumentationTestDependencies.espressoIdlingResource
+    androidTestImplementation instrumentationTestDependencies.espressoIntents
+    androidTestImplementation instrumentationTestDependencies.mockito
+    androidTestImplementation instrumentationTestDependencies.supportRunner
+    androidTestImplementation instrumentationTestDependencies.supportRules
+    androidTestImplementation instrumentationTestDependencies.supportAnnotations
+
+    androidTestImplementation daggerDependencies.dagger
+    androidTestImplementation daggerDependencies.annotation
+    kaptAndroidTest daggerDependencies.compiler
 }
 
 

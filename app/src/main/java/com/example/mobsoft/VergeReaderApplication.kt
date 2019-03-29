@@ -9,7 +9,7 @@ class VergeReaderApplication : Application(){
 
     override fun onCreate() {
         super.onCreate()
-        injector = DaggerVergeReaderApplicationComponent.builder().UIModule(UIModule(this)).build()
+        injector = DaggerVergeReaderApplicationComponent.builder().uIModule(UIModule(this)).build()
     }
 
 }
