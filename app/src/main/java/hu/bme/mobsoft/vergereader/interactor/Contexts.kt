@@ -1,4 +1,4 @@
-package com.example.mobsoft.interactor
+package hu.bme.mobsoft.vergereader.interactor
 
 import kotlinx.coroutines.Dispatchers
 

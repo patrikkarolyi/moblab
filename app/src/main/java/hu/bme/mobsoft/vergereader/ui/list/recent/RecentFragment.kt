@@ -1,4 +1,4 @@
-package com.example.mobsoft.ui.list.recent
+package hu.bme.mobsoft.vergereader.ui.list.recent
 
 import android.support.v4.app.Fragment
 
