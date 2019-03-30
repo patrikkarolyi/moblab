@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MobSoft</string>
+    <string name="list_recent">Recent</string>
+    <string name="list_favorite">Favorite</string>
 </resources>

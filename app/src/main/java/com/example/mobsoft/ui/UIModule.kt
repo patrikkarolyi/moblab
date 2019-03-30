@@ -1,7 +1,8 @@
 package com.example.mobsoft.ui
 
 import android.content.Context
-import com.example.mobsoft.ui.main.MainPresenter
+import com.example.mobsoft.ui.details.DetailsPresenter
+import com.example.mobsoft.ui.list.ListPresenter
 import com.example.mobsoft.ui.splash.SplashPresenter
 import dagger.Module
 import dagger.Provides
@@ -15,10 +16,14 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun mainPresenter() = MainPresenter()
+    fun splashPresenter() = SplashPresenter()
 
     @Provides
     @Singleton
-    fun splashPresenter() = SplashPresenter()
+    fun listPresenter() = ListPresenter()
+
+    @Provides
+    @Singleton
+    fun detailsPresenter() = DetailsPresenter()
 
 }
