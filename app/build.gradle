@@ -21,9 +21,6 @@ android {
     }
 }
 
-kapt {
-    generateStubs = true
-}
 
 dependencies {
     implementation kotlinDependencies.stdlib
@@ -41,6 +38,8 @@ dependencies {
     implementation toolkitDependencies.gson
     implementation toolkitDependencies.glide
     implementation toolkitDependencies.eventbus
+    implementation toolkitDependencies.coroutines
+    implementation toolkitDependencies.coroutines_android
 
     implementation daggerDependencies.dagger
     kapt daggerDependencies.compiler
