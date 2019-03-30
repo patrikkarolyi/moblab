@@ -1,8 +1,9 @@
 package hu.bme.mobsoft.vergereader.ui.list
 
+import hu.bme.mobsoft.vergereader.interactor.articles.ArticleInteractor
 import hu.bme.mobsoft.vergereader.ui.Presenter
-import hu.bme.mobsoft.vergereader.ui.list.ListScreen
+import javax.inject.Inject
 
-class ListPresenter : Presenter<ListScreen>(){
+class ListPresenter @Inject constructor(private val articleInteractor: ArticleInteractor) : Presenter<ListScreen>() {
 
 }

@@ -2,9 +2,9 @@ package hu.bme.mobsoft.vergereader.ui.list
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import hu.bme.mobsoft.vergereader.R
 import hu.bme.mobsoft.vergereader.injector
 import hu.bme.mobsoft.vergereader.ui.list.adapaters.ListPagerAdapter
-import hu.bme.mobsoft.vergereader.R
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 

@@ -3,7 +3,7 @@ package hu.bme.mobsoft.vergereader
 import android.app.Application
 import hu.bme.mobsoft.vergereader.ui.UIModule
 
-class VergeReaderApplication : Application(){
+class VergeReaderApplication : Application() {
 
     lateinit var injector: VergeReaderApplicationComponent
 

@@ -4,5 +4,5 @@ import kotlinx.coroutines.Dispatchers
 
 object Contexts {
     val UI = Dispatchers.Main
-    val NETWORK = Dispatchers.IO
+    val IO = Dispatchers.IO
 }

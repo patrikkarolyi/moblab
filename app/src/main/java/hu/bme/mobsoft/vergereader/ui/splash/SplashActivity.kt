@@ -3,9 +3,9 @@ package hu.bme.mobsoft.vergereader.ui.splash
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import hu.bme.mobsoft.vergereader.R
 import hu.bme.mobsoft.vergereader.injector
 import hu.bme.mobsoft.vergereader.ui.list.ListActivity
-import hu.bme.mobsoft.vergereader.R
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity(), SplashScreen {

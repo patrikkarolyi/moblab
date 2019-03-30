@@ -6,6 +6,7 @@ import hu.bme.mobsoft.vergereader.ui.list.ListPresenter
 import hu.bme.mobsoft.vergereader.ui.splash.SplashPresenter
 import dagger.Module
 import dagger.Provides
+import hu.bme.mobsoft.vergereader.interactor.articles.ArticleInteractor
 import javax.inject.Singleton
 
 @Module
@@ -20,7 +21,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun listPresenter() = ListPresenter()
+    fun listPresenter(articleInteractor : ArticleInteractor) = ListPresenter(articleInteractor)
 
     @Provides
     @Singleton

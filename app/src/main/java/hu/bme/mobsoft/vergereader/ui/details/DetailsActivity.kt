@@ -2,10 +2,8 @@ package hu.bme.mobsoft.vergereader.ui.details
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import hu.bme.mobsoft.vergereader.injector
 import hu.bme.mobsoft.vergereader.R
-import hu.bme.mobsoft.vergereader.ui.details.DetailsPresenter
-import hu.bme.mobsoft.vergereader.ui.details.DetailsScreen
+import hu.bme.mobsoft.vergereader.injector
 import javax.inject.Inject
 
 class DetailsActivity : AppCompatActivity(), DetailsScreen {
