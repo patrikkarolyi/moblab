@@ -43,6 +43,8 @@ dependencies {
     implementation toolkitDependencies.eventbus
     implementation toolkitDependencies.coroutines
     implementation toolkitDependencies.coroutines_android
+    implementation toolkitDependencies.room
+    kapt toolkitDependencies.room_annotations
 
     implementation daggerDependencies.dagger
     kapt daggerDependencies.compiler

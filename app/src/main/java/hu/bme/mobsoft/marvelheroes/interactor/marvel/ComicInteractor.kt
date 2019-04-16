@@ -11,6 +11,9 @@ import javax.inject.Inject
 
 class ComicInteractor @Inject constructor(private var comicApi: ComicApi) {
 
+    ///TODO error handling
+    ///TODO calculate hash
+
     suspend fun getComic(comicId : Int) : List<MarvelComic>  = withContext(Contexts.IO) {
         val timestamp = 1555350390
         val apikey_public = NetworkConfig.APIKEY_PUBLIC
