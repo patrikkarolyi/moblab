@@ -3,8 +3,8 @@ package hu.bme.mobsoft.marvelheroes.interactor.marvel
 import hu.bme.mobsoft.marvelheroes.interactor.Contexts
 import hu.bme.mobsoft.marvelheroes.network.NetworkConfig
 import hu.bme.mobsoft.marvelheroes.network.api.CharacterApi
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacter
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacterResponse
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacterResponse
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

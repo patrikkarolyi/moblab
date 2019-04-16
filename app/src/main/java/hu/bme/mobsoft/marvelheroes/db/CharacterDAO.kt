@@ -1,7 +1,7 @@
 package hu.bme.mobsoft.marvelheroes.db
 
 import android.arch.persistence.room.*
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacter
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
 
 
 @Dao

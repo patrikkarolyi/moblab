@@ -5,8 +5,8 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import hu.bme.mobsoft.marvelheroes.interactor.Contexts
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacter
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelComic
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
 import kotlinx.coroutines.withContext
 
 

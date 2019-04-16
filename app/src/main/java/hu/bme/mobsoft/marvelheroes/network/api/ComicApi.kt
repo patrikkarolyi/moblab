@@ -13,8 +13,7 @@ package hu.bme.mobsoft.marvelheroes.network.api
  */
 
 
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacterResponse
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelComicResponse
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComicResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

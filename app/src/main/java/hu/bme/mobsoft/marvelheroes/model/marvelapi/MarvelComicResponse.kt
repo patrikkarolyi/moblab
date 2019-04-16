@@ -1,4 +1,4 @@
-package hu.bme.mobsoft.marvelheroes.network.model.marvelapi
+package hu.bme.mobsoft.marvelheroes.model.marvelapi
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

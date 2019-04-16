@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import hu.bme.mobsoft.marvelheroes.R
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacter
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelComic
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
 
 class RecentFragment : Fragment() {
 

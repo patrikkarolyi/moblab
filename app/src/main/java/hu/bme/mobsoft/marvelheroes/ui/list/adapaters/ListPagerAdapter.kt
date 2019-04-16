@@ -8,7 +8,7 @@ import android.support.v4.view.PagerAdapter
 import hu.bme.mobsoft.marvelheroes.ui.list.favorite.FavoriteFragment
 import hu.bme.mobsoft.marvelheroes.ui.list.recent.RecentFragment
 import hu.bme.mobsoft.marvelheroes.R
-import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelComic
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
 
 class ListPagerAdapter(
     private val context: Context,

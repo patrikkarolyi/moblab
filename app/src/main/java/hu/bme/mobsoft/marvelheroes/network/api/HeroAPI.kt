@@ -1,6 +1,6 @@
 package hu.bme.mobsoft.marvelheroes.network.api
 
-import hu.bme.mobsoft.marvelheroes.network.model.heroapi.Hero
+import hu.bme.mobsoft.marvelheroes.model.heroapi.Hero
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
