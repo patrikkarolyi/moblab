@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import hu.bme.mobsoft.marvelheroes.R
-import hu.bme.mobsoft.marvelheroes.network.model.Hero
-import hu.bme.mobsoft.marvelheroes.network.model.MarvelCharacter
+import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacter
+import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelComic
 
 class RecentFragment : Fragment() {
 
-    private val heroes by lazy { arguments!![HEROES] as ArrayList<MarvelCharacter> }
+    private val heroes by lazy { arguments!![HEROES] as ArrayList<MarvelComic> }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return View.inflate(activity, R.layout.fragment_recent, null)
@@ -24,16 +24,16 @@ class RecentFragment : Fragment() {
     }
 
     private fun setView() {
-        heroes.forEach { Toast.makeText(context,it.name,Toast.LENGTH_SHORT).show()}
+        heroes.forEach { Toast.makeText(context,it.title,Toast.LENGTH_SHORT).show()}
 
     }
 
     companion object {
         const val HEROES = "HEROES"
 
-        fun newInstance(characters: List<MarvelCharacter>?): RecentFragment {
+        fun newInstance(comics: List<MarvelComic>): RecentFragment {
             val bundle = Bundle().apply {
-                putParcelableArrayList(HEROES,java.util.ArrayList(characters))
+                putParcelableArrayList(HEROES,java.util.ArrayList(comics))
             }
             return RecentFragment().apply { arguments = bundle }
         }

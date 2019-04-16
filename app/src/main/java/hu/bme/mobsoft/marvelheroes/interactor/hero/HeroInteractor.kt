@@ -2,7 +2,7 @@ package hu.bme.mobsoft.marvelheroes.interactor.hero
 
 import hu.bme.mobsoft.marvelheroes.interactor.Contexts
 import hu.bme.mobsoft.marvelheroes.network.api.HeroApi
-import hu.bme.mobsoft.marvelheroes.network.model.Hero
+import hu.bme.mobsoft.marvelheroes.network.model.heroapi.Hero
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

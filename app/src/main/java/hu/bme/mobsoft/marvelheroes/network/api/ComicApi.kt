@@ -13,7 +13,8 @@ package hu.bme.mobsoft.marvelheroes.network.api
  */
 
 
-import hu.bme.mobsoft.marvelheroes.network.model.MarvelCharacterResponse
+import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelCharacterResponse
+import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelComicResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -31,12 +32,30 @@ interface ComicApi {
      * @return void
      */
 
-    @GET("commics/{comicId}")
+    @GET("comics/{comicId}")
     fun getComic(
-        @Path("comicId") comicId: String,
+        @Path("comicId") comicId: Int,
         @Query("ts") ts: Int,
         @Query("hash") hash: String,
         @Query("apikey") apikey: String
-    ): Call<MarvelCharacterResponse>
+    ): Call<MarvelComicResponse>
+
+    /**
+     * Get hero related marvelComics
+     *
+     * @param ts
+     * @param hash
+     * @param apikey
+     * @param characterId ID of hero
+     * @return void
+     */
+
+    @GET("characters/{characterId}/comics")
+    fun getRelatedComics(
+        @Path("characterId") characterId : Int,
+        @Query("ts") ts: Int,
+        @Query("hash") hash: String,
+        @Query("apikey") apikey: String
+    ): Call<MarvelComicResponse>
 
 }

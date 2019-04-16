@@ -1,4 +1,4 @@
-package hu.bme.mobsoft.marvelheroes.network.model
+package hu.bme.mobsoft.marvelheroes.network.model.marvelapi
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -10,9 +10,9 @@ import kotlinx.android.parcel.Parcelize
  */
 
 @Parcelize
-data class MarvelComicWrapper (
+data class MarvelCharacterComicWrapper (
     val available: Int? = null,
     val collectionURI: String? = null,
-    val items: List<MarvelComic>? = null,
+    val items: List<MarvelCharacterComic>? = null,
     val returned: Int? = null
 ) : Parcelable

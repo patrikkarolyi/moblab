@@ -8,18 +8,18 @@ import android.support.v4.view.PagerAdapter
 import hu.bme.mobsoft.marvelheroes.ui.list.favorite.FavoriteFragment
 import hu.bme.mobsoft.marvelheroes.ui.list.recent.RecentFragment
 import hu.bme.mobsoft.marvelheroes.R
-import hu.bme.mobsoft.marvelheroes.network.model.MarvelCharacter
+import hu.bme.mobsoft.marvelheroes.network.model.marvelapi.MarvelComic
 
 class ListPagerAdapter(
     private val context: Context,
     fm: FragmentManager,
-    character: List<MarvelCharacter>?
+    comics: List<MarvelComic>
 ) : FragmentStatePagerAdapter(fm) {
 
     private val fragments: ArrayList<Fragment> = ArrayList()
 
     init {
-        fragments.add(RecentFragment.newInstance(character))
+        fragments.add(RecentFragment.newInstance(comics))
         fragments.add(FavoriteFragment())
     }
 
