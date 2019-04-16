@@ -6,7 +6,7 @@ import hu.bme.mobsoft.marvelheroes.ui.list.ListPresenter
 import hu.bme.mobsoft.marvelheroes.ui.splash.SplashPresenter
 import dagger.Module
 import dagger.Provides
-import hu.bme.mobsoft.marvelheroes.interactor.articles.ArticleInteractor
+import hu.bme.mobsoft.marvelheroes.interactor.marvel.CharacterInteractor
 import javax.inject.Singleton
 
 @Module
@@ -21,7 +21,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun listPresenter(articleInteractor : ArticleInteractor) = ListPresenter(articleInteractor)
+    fun listPresenter(characterInteractor : CharacterInteractor) = ListPresenter(characterInteractor)
 
     @Provides
     @Singleton
