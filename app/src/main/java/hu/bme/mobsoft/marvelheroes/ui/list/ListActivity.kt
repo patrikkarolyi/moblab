@@ -6,38 +6,21 @@ import hu.bme.mobsoft.marvelheroes.R
 import hu.bme.mobsoft.marvelheroes.injector
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
-import hu.bme.mobsoft.marvelheroes.ui.list.adapaters.ListPagerAdapter
+import hu.bme.mobsoft.marvelheroes.ui.list.adapters.ListPagerAdapter
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
-class ListActivity : AppCompatActivity(), ListScreen {
+class ListActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var presenter: ListPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
-        injector.inject(this)
-    }
 
-    override fun onStart() {
-        super.onStart()
-        presenter.attachScreen(this)
-        presenter.getRelatedComics()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        presenter.detachScreen()
-    }
-
-    override fun setCharacters(characters: List<MarvelCharacter>) {
-
-    }
-
-    override fun setComics(comics: List<MarvelComic>) {
-        listViewPager.adapter = ListPagerAdapter(baseContext!!, supportFragmentManager!!,comics)
+        listViewPager.adapter = ListPagerAdapter(baseContext!!, supportFragmentManager!!)
         listSlidingTabs.setupWithViewPager(listViewPager)
     }
+
+
+
 }
