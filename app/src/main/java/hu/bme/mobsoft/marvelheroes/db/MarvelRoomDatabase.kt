@@ -3,17 +3,22 @@ package hu.bme.mobsoft.marvelheroes.db
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
 import android.content.Context
+import hu.bme.mobsoft.marvelheroes.db.typeconverters.CharacterComicWrapperConverter
+import hu.bme.mobsoft.marvelheroes.db.typeconverters.ThumbnailConverter
+import hu.bme.mobsoft.marvelheroes.db.typeconverters.UrlsConverter
 import hu.bme.mobsoft.marvelheroes.interactor.Contexts
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
 import kotlinx.coroutines.withContext
 
-
 @Database(entities = [MarvelCharacter::class, MarvelComic::class], version = 1)
+@TypeConverters(CharacterComicWrapperConverter::class, ThumbnailConverter::class, UrlsConverter::class)
 abstract class MarvelRoomDatabase : RoomDatabase() {
 
     abstract fun characterDAO(): CharacterDAO
+
 
     suspend fun saveCharacters(characters: List<MarvelCharacter>) = withContext(Contexts.IO) { characterDAO().insertAll(characters) }
 

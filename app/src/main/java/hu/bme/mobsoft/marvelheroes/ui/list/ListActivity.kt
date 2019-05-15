@@ -37,8 +37,7 @@ class ListActivity : AppCompatActivity(), ListScreen {
     }
 
     override fun setComics(comics: List<MarvelComic>) {
-        listViewPager.adapter =
-            ListPagerAdapter(baseContext!!, supportFragmentManager!!,comics)
+        listViewPager.adapter = ListPagerAdapter(baseContext!!, supportFragmentManager!!,comics)
         listSlidingTabs.setupWithViewPager(listViewPager)
     }
 }
