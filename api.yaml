@@ -1,0 +1,169 @@
+swagger: '2.0'
+info:
+  description: This is a home work
+  version: 1.0.0
+  title: 'Marvel comics '
+host: 'gateway.marvel.com:443'
+basePath: /v1/public
+tags:
+  - name: characters
+    description: Everything about your Heroes
+    externalDocs:
+      description: Find out more
+      url: 'https://developer.marvel.com/account'
+schemes:
+  - https
+paths:
+  /characters:
+    get:
+      tags:
+        - characters
+      summary: Get all characters
+      operationId: findAllHeroes
+      produces:
+        - application/json
+      parameters:
+        - name: ts
+          in: query
+          required: true
+          type: string
+        - name: hash
+          in: query
+          required: true
+          type: string
+        - name: apikey
+          in: query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: '400'
+  '/characters/{characterId}':
+    get:
+      tags:
+        - characters
+      summary: Get a character
+      operationId: findHero
+      produces:
+        - application/json
+      parameters:
+        - name: ts
+          in: query
+          required: true
+          type: string
+        - name: hash
+          in: query
+          required: true
+          type: string
+        - name: apikey
+          in: query
+          required: true
+          type: string
+        - name: characterId
+          in: path
+          description: ID of hero to return
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: '200'
+        '400':
+          description: '400'
+  '/characters/{characterId}/comics':
+    get:
+      tags:
+        - characters
+      summary: Get hero related comics
+      operationId: findRelatedComics
+      produces:
+        - application/json
+      parameters:
+        - name: ts
+          in: query
+          required: true
+          type: string
+        - name: hash
+          in: query
+          required: true
+          type: string
+        - name: apikey
+          in: query
+          required: true
+          type: string
+        - name: characterId
+          in: path
+          description: ID of hero to return
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: '200'
+        '400':
+          description: '400'
+  '/comics/{comicId}':
+    get:
+      tags:
+        - comics
+      summary: Get a comic
+      operationId: findComic
+      produces:
+        - application/json
+      parameters:
+        - name: ts
+          in: query
+          required: true
+          type: string
+        - name: hash
+          in: query
+          required: true
+          type: string
+        - name: apikey
+          in: query
+          required: true
+          type: string
+        - name: comicId
+          in: path
+          description: ID of comic to return
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: '200'
+        '400':
+          description: '400'
+definitions:
+  Response:
+    type: object
+    properties:
+      code:
+        type: integer
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Wrapper'
+  Wrapper:
+    type: object
+    properties:
+      count:
+        type: integer
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/Comic'
+  Comic:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+externalDocs:
+  description: Find out more about Marvel API
+  url: 'https://developer.marvel.com/docs'
