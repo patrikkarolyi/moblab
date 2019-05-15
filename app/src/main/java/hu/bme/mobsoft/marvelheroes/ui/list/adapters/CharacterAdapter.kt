@@ -9,10 +9,15 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import hu.bme.mobsoft.marvelheroes.R
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
+import hu.bme.mobsoft.marvelheroes.utils.AspectRatio
+import hu.bme.mobsoft.marvelheroes.utils.ImageSize
+import hu.bme.mobsoft.marvelheroes.utils.imageUrl
+import hu.bme.mobsoft.marvelheroes.utils.toHTTPS
 import kotlinx.android.synthetic.main.item_character.view.*
 
 
-class CharacterAdapter(private val characters: List<MarvelCharacter>) :
+class CharacterAdapter(private val characters: List<MarvelCharacter>,
+                       private val listener: CharacterClickListener) :
     RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
 
@@ -23,12 +28,15 @@ class CharacterAdapter(private val characters: List<MarvelCharacter>) :
 
     override fun onBindViewHolder(vh: CharacterViewHolder, pos: Int) {
         characters[pos].thumbnail?.let {
-            val queryUrl = it.path?.toHTTPS() + "/standard_medium." + it.extension
+            val queryUrl = it.imageUrl(AspectRatio.Standard,ImageSize.Medium)
             Glide.with(vh.itemView.context).load(queryUrl).into(vh.iv)
         }
 
         vh.tv.text = characters[pos].name
 
+        vh.iv.setOnClickListener {
+            listener.characterClicked(characters[pos])
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -40,7 +48,9 @@ class CharacterAdapter(private val characters: List<MarvelCharacter>) :
 
 
 }
-
-private fun String.toHTTPS(): String {
-    return this.replaceFirst("http", "https")
+interface CharacterClickListener{
+    fun characterClicked(marvelCharacter: MarvelCharacter)
 }
+
+
+

@@ -9,6 +9,10 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import hu.bme.mobsoft.marvelheroes.R
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
+import hu.bme.mobsoft.marvelheroes.utils.AspectRatio
+import hu.bme.mobsoft.marvelheroes.utils.ImageSize
+import hu.bme.mobsoft.marvelheroes.utils.imageUrl
+import hu.bme.mobsoft.marvelheroes.utils.toHTTPS
 import kotlinx.android.synthetic.main.item_character.view.*
 
 class ComicAdapter(private val comics: List<MarvelComic>) :RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
@@ -21,7 +25,7 @@ class ComicAdapter(private val comics: List<MarvelComic>) :RecyclerView.Adapter<
 
     override fun onBindViewHolder(vh: ComicViewHolder, pos: Int) {
         comics[pos].thumbnail?.let {
-            val queryUrl = it.path?.toHTTPS() + "/portrait_xlarge." + it.extension
+            val queryUrl = it.imageUrl(AspectRatio.Portrait,ImageSize.Xlarge)
             Glide.with(vh.itemView.context).load(queryUrl).into(vh.iv)
         }
 
@@ -37,8 +41,4 @@ class ComicAdapter(private val comics: List<MarvelComic>) :RecyclerView.Adapter<
     override fun getItemCount() = comics.size
 
 
-}
-
-private fun String.toHTTPS(): String {
-    return this.replaceFirst("http", "https")
 }
