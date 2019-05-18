@@ -1,4 +1,4 @@
-package hu.bme.mobsoft.marvelheroes.ui.list.adapters
+package hu.bme.mobsoft.marvelheroes.ui.list.adapter
 
 import android.content.Context
 import android.support.v4.app.Fragment

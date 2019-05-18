@@ -1,4 +1,4 @@
-package hu.bme.mobsoft.marvelheroes.ui.list.adapters
+package hu.bme.mobsoft.marvelheroes.ui.list.comics.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -12,10 +12,11 @@ import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
 import hu.bme.mobsoft.marvelheroes.utils.AspectRatio
 import hu.bme.mobsoft.marvelheroes.utils.ImageSize
 import hu.bme.mobsoft.marvelheroes.utils.imageUrl
-import hu.bme.mobsoft.marvelheroes.utils.toHTTPS
 import kotlinx.android.synthetic.main.item_character.view.*
 
-class ComicAdapter(private val comics: List<MarvelComic>) :RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
+class ComicAdapter(private val comics: List<MarvelComic>,
+                   private val listener: ComicClickListener
+) :RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
 
 
     inner class ComicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -31,6 +32,9 @@ class ComicAdapter(private val comics: List<MarvelComic>) :RecyclerView.Adapter<
 
         vh.tv.text = comics[pos].title
 
+        vh.iv.setOnClickListener {
+            listener.comicClicked(comics[pos])
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
@@ -40,5 +44,8 @@ class ComicAdapter(private val comics: List<MarvelComic>) :RecyclerView.Adapter<
 
     override fun getItemCount() = comics.size
 
+}
 
+interface ComicClickListener{
+    fun comicClicked(marvelComic: MarvelComic)
 }

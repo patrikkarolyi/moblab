@@ -1,7 +1,6 @@
 package hu.bme.mobsoft.marvelheroes.ui
 
 import android.content.Context
-import hu.bme.mobsoft.marvelheroes.ui.details.DetailsPresenter
 import hu.bme.mobsoft.marvelheroes.ui.splash.SplashPresenter
 import dagger.Module
 import dagger.Provides

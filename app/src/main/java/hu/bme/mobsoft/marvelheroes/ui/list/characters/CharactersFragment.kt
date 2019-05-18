@@ -10,9 +10,9 @@ import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
 import javax.inject.Inject
 import android.support.v7.widget.GridLayoutManager
 import hu.bme.mobsoft.marvelheroes.injector
-import hu.bme.mobsoft.marvelheroes.ui.details.DetailsFragment
-import hu.bme.mobsoft.marvelheroes.ui.list.adapters.CharacterAdapter
-import hu.bme.mobsoft.marvelheroes.ui.list.adapters.CharacterClickListener
+import hu.bme.mobsoft.marvelheroes.ui.list.characters.details.CharacterDetailsFragment
+import hu.bme.mobsoft.marvelheroes.ui.list.characters.adapter.CharacterAdapter
+import hu.bme.mobsoft.marvelheroes.ui.list.characters.adapter.CharacterClickListener
 import kotlinx.android.synthetic.main.fragment_recent.*
 
 
@@ -39,13 +39,13 @@ class CharactersFragment : Fragment() , CharactersScreen, CharacterClickListener
 
     override fun setCharacters(characters: List<MarvelCharacter>) {
         contentRV.layoutManager = GridLayoutManager(context,3)
-        contentRV.adapter = CharacterAdapter(characters,this)
+        contentRV.adapter = CharacterAdapter(characters, this)
     }
 
     override fun characterClicked(marvelCharacter: MarvelCharacter) {
         childFragmentManager.beginTransaction()
             .addToBackStack("details")
-            .add(R.id.detailsContainer, DetailsFragment.newInstance(marvelCharacter = marvelCharacter))
+            .add(R.id.detailsContainer, CharacterDetailsFragment.newInstance(marvelCharacter = marvelCharacter))
             .commit()
     }
 }
