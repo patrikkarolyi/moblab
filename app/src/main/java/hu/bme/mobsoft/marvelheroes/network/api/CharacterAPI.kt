@@ -30,7 +30,7 @@ interface CharacterApi {
      */
 
     @GET("characters")
-    fun getHeroes(
+    fun getCharacters(
         @Query("limit") limit: Int,
         @Query("offset") offset: Int,
         @Query("ts") ts: Int,
@@ -49,7 +49,7 @@ interface CharacterApi {
      */
 
     @GET("characters/{characterId}")
-    fun getHero(
+    fun getCharacter(
         @Path("characterId") characterId : Int,
         @Query("ts") ts: Int,
         @Query("hash") hash: String,

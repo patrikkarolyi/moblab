@@ -1,4 +1,4 @@
-package com.example.mobsoft
+package com.example.mobsoft.test
 
 import org.junit.Test
 

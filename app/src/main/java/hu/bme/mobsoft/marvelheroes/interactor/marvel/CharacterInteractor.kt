@@ -15,9 +15,6 @@ import javax.inject.Inject
 
 class CharacterInteractor @Inject constructor(private var characterApi: CharacterApi, val context: Context) {
 
-    suspend fun getArticles() = withContext(Contexts.IO) {
-        listOf("a", "b", "c")
-    }
 
     suspend fun getCharacters(offset: Int): List<MarvelCharacter> = withContext(Contexts.IO) {
         when {
@@ -32,7 +29,7 @@ class CharacterInteractor @Inject constructor(private var characterApi: Characte
                 val apikey_private = NetworkConfig.APIKEY_PRIVATE
                 val hash = "a4c7f2c7ea5315021a7d7ad61e58d5e6" //timestamp.toString() + apikey_private + apikey_public
                 val response: MarvelCharacterResponse? =
-                    characterApi.getHeroes(21, offset, timestamp, hash, apikey_public).execute().body()
+                    characterApi.getCharacters(21, offset, timestamp, hash, apikey_public).execute().body()
                 response?.data?.results!!
             }
         }
@@ -44,7 +41,7 @@ class CharacterInteractor @Inject constructor(private var characterApi: Characte
         val apikey_private = NetworkConfig.APIKEY_PRIVATE
         val hash = "a4c7f2c7ea5315021a7d7ad61e58d5e6" //timestamp.toString() + apikey_private + apikey_public
         val response: MarvelCharacterResponse? =
-            characterApi.getHero(characterId, timestamp, hash, apikey_public).execute().body()
+            characterApi.getCharacter(characterId, timestamp, hash, apikey_public).execute().body()
         response?.data?.results!!
 
     }
