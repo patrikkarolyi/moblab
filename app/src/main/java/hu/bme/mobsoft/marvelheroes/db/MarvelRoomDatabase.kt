@@ -19,6 +19,7 @@ abstract class MarvelRoomDatabase : RoomDatabase() {
 
     abstract fun characterDAO(): CharacterDAO
 
+    suspend fun getCharacters() = withContext(Contexts.IO) { characterDAO().getAll() }
 
     suspend fun saveCharacters(characters: List<MarvelCharacter>) = withContext(Contexts.IO) { characterDAO().insertAll(characters) }
 
@@ -27,6 +28,8 @@ abstract class MarvelRoomDatabase : RoomDatabase() {
     suspend fun deleteCharacter(character: MarvelCharacter) = withContext(Contexts.IO) { characterDAO().delete(character) }
 
     abstract fun comicDAO(): ComicDAO
+
+    suspend fun getComics() = withContext(Contexts.IO) { comicDAO().getAll() }
 
     suspend fun saveComics(comics: List<MarvelComic>) = withContext(Contexts.IO) { comicDAO().insertAll(comics) }
 
@@ -39,9 +42,8 @@ abstract class MarvelRoomDatabase : RoomDatabase() {
         @JvmStatic
         fun getInstance(context: Context): MarvelRoomDatabase {
             if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(context.applicationContext,
-                    MarvelRoomDatabase::class.java,"location_db")
-                    .allowMainThreadQueries()
+                INSTANCE = Room
+                    .databaseBuilder(context.applicationContext, MarvelRoomDatabase::class.java,"marvel_db")
                     .build()
             }
             return INSTANCE!!

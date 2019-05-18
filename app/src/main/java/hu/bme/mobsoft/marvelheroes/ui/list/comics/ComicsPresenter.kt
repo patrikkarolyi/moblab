@@ -14,6 +14,7 @@ class ComicsPresenter @Inject constructor(private val comicInteractor: ComicInte
             val comics = comicInteractor.getComics(offset)
             screen?.setComics(comics)
             screen?.loading(false)
+            comicInteractor.saveComics(comics)
         }
     }
 
@@ -23,6 +24,7 @@ class ComicsPresenter @Inject constructor(private val comicInteractor: ComicInte
             val comics = comicInteractor.getComic(comicId) //5589
             screen?.setComics(comics)
             screen?.loading(false)
+            comicInteractor.saveComics(comics)
         }
     }
 
@@ -32,6 +34,7 @@ class ComicsPresenter @Inject constructor(private val comicInteractor: ComicInte
             val comics = comicInteractor.getComicsOfCharacter(1011334)
             screen?.setComics(comics)
             screen?.loading(false)
+            comicInteractor.saveComics(comics)
         }
     }
 }

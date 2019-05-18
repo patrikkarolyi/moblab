@@ -4,10 +4,11 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import android.os.Parcelable
+import hu.bme.mobsoft.marvelheroes.db.ComicDAO
 import kotlinx.android.parcel.Parcelize
 
-@Entity
 @Parcelize
+@Entity(tableName = ComicDAO.tableName)
 data class MarvelComic(
     @PrimaryKey(autoGenerate = false)
     val id : Int,

@@ -1,15 +1,20 @@
 package hu.bme.mobsoft.marvelheroes.db
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Update
+import android.arch.persistence.room.*
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
 
 @Dao
 interface ComicDAO {
 
-    @Insert
+    companion object {
+        const val tableName = "marvel_comic_db"
+    }
+
+    @Query("SELECT * FROM $tableName")
+    fun getAll(): List<MarvelComic>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(comics: List<MarvelComic>)
 
     @Update

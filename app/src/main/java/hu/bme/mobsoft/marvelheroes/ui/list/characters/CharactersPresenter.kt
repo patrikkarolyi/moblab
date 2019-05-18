@@ -14,13 +14,16 @@ class CharactersPresenter @Inject constructor(private val characterInteractor: C
             val characters = characterInteractor.getCharacters(offset)
             screen?.setCharacters(characters)
             screen?.loading(false)
+            characterInteractor.saveCharacters(characters)
         }
     }
 
     fun getCharacter() {
         launch {
+            screen?.loading(true)
             val characters = characterInteractor.getCharacter(1011334)
             screen?.setCharacters(characters)
+            screen?.loading(false)
         }
     }
 
