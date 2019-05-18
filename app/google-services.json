@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "694583020613",
+    "firebase_url": "https://moblab-f5f9a.firebaseio.com",
+    "project_id": "moblab-f5f9a",
+    "storage_bucket": "moblab-f5f9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694583020613:android:f1967a6b36507343",
+        "android_client_info": {
+          "package_name": "com.example.mobsoft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694583020613-te677udji27ivkihqpifjsfs9ce8uikb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobsoft",
+            "certificate_hash": "3b8f1a07b368edf7c031239b46d17155ed93cf21"
+          }
+        },
+        {
+          "client_id": "694583020613-hf531vsqpe70imq7o7n39603eq6pnhhn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlUaYukFJDCCx3Q6XNIWahfzJdHIfVsOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694583020613-hf531vsqpe70imq7o7n39603eq6pnhhn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

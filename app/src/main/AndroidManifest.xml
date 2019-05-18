@@ -17,10 +17,15 @@
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ui.list.ListActivity"/>
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="af9448a3131e3f9a5205aee22629c9f5c6090965"
+        />
+
+
     </application>
 </manifest>

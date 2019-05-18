@@ -7,16 +7,30 @@ import android.support.v7.view.ContextThemeWrapper
 import hu.bme.mobsoft.marvelheroes.R
 import hu.bme.mobsoft.marvelheroes.ui.list.adapter.ListPagerAdapter
 import kotlinx.android.synthetic.main.activity_list.*
+import com.crashlytics.android.Crashlytics
+import com.google.firebase.analytics.FirebaseAnalytics
+import io.fabric.sdk.android.Fabric
+
+
 
 class ListActivity : AppCompatActivity() {
+
+    private lateinit var firebaseAnalytics : FirebaseAnalytics
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Fabric.with(this, Crashlytics())
         setContentView(R.layout.activity_list)
-
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         listViewPager.adapter = ListPagerAdapter(baseContext!!, supportFragmentManager!!)
         listSlidingTabs.setupWithViewPager(listViewPager)
+
+
+        val bundle  = Bundle().apply {
+            putString(FirebaseAnalytics.Param.ITEM_NAME,"login")
+        }
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN,bundle)
     }
 
     override fun onBackPressed() {

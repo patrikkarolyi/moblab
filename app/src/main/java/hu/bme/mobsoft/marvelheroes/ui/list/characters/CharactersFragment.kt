@@ -16,9 +16,6 @@ import hu.bme.mobsoft.marvelheroes.ui.list.characters.adapter.CharacterClickList
 import kotlinx.android.synthetic.main.fragment_recent.*
 import android.support.v7.widget.RecyclerView
 
-
-
-
 class CharactersFragment : Fragment() , CharactersScreen, CharacterClickListener {
 
 
