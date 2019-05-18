@@ -14,7 +14,7 @@ import hu.bme.mobsoft.marvelheroes.utils.ImageSize
 import hu.bme.mobsoft.marvelheroes.utils.imageUrl
 import kotlinx.android.synthetic.main.item_character.view.*
 
-class ComicAdapter(private val comics: List<MarvelComic>,
+class ComicAdapter(private val comics: MutableList<MarvelComic>,
                    private val listener: ComicClickListener
 ) :RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
 
@@ -43,6 +43,12 @@ class ComicAdapter(private val comics: List<MarvelComic>,
     }
 
     override fun getItemCount() = comics.size
+
+    fun addComic(newComics : List<MarvelComic>){
+        comics.addAll(newComics)
+        val count = newComics.size
+        notifyItemRangeInserted(comics.size-count,count)
+    }
 
 }
 

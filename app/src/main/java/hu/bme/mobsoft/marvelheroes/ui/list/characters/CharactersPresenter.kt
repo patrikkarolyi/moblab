@@ -8,10 +8,12 @@ import javax.inject.Inject
 class CharactersPresenter @Inject constructor(private val characterInteractor: CharacterInteractor) :
     Presenter<CharactersScreen>() {
 
-    fun getCharacters() {
+    fun getCharacters(offset: Int = 0) {
         launch {
-            val characters = characterInteractor.getCharacters()
+            screen?.loading(true)
+            val characters = characterInteractor.getCharacters(offset)
             screen?.setCharacters(characters)
+            screen?.loading(false)
         }
     }
 

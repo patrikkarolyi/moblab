@@ -28,8 +28,5 @@ class UIModule(private val context: Context) {
     @Singleton
     fun comicsPresenter(comicInteractor: ComicInteractor) = ComicsPresenter(comicInteractor)
 
-    @Provides
-    @Singleton
-    fun detailsPresenter() = DetailsPresenter()
 
 }

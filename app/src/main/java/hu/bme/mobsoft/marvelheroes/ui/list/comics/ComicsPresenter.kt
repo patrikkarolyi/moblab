@@ -8,24 +8,30 @@ import javax.inject.Inject
 class ComicsPresenter @Inject constructor(private val comicInteractor: ComicInteractor) : Presenter<ComicsScreen>() {
 
 
-    fun getComics() {
+    fun getComics(offset : Int = 0) {
         launch {
-            val comics = comicInteractor.getComics()
+            screen?.loading(true)
+            val comics = comicInteractor.getComics(offset)
             screen?.setComics(comics)
+            screen?.loading(false)
         }
     }
 
     fun getComic(comicId : Int) {
         launch {
+            screen?.loading(true)
             val comics = comicInteractor.getComic(comicId) //5589
             screen?.setComics(comics)
+            screen?.loading(false)
         }
     }
 
     fun getRelatedComics() {
         launch {
+            screen?.loading(true)
             val comics = comicInteractor.getComicsOfCharacter(1011334)
             screen?.setComics(comics)
+            screen?.loading(false)
         }
     }
 }

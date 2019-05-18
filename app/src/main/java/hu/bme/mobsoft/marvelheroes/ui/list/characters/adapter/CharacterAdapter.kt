@@ -15,7 +15,7 @@ import hu.bme.mobsoft.marvelheroes.utils.imageUrl
 import kotlinx.android.synthetic.main.item_character.view.*
 
 
-class CharacterAdapter(private val characters: List<MarvelCharacter>,
+class CharacterAdapter(private val characters: MutableList<MarvelCharacter>,
                        private val listener: CharacterClickListener
 ) :
     RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
@@ -27,16 +27,18 @@ class CharacterAdapter(private val characters: List<MarvelCharacter>,
     }
 
     override fun onBindViewHolder(vh: CharacterViewHolder, pos: Int) {
-        characters[pos].thumbnail?.let {
-            val queryUrl = it.imageUrl(AspectRatio.Standard,ImageSize.Medium)
-            Glide.with(vh.itemView.context).load(queryUrl).into(vh.iv)
-        }
 
-        vh.tv.text = characters[pos].name
+            characters[pos].thumbnail?.let {
+                val queryUrl = it.imageUrl(AspectRatio.Standard,ImageSize.Medium)
+                Glide.with(vh.itemView.context).load(queryUrl).into(vh.iv)
+            }
 
-        vh.iv.setOnClickListener {
-            listener.characterClicked(characters[pos])
-        }
+            vh.tv.text = characters[pos].name
+
+            vh.iv.setOnClickListener {
+                listener.characterClicked(characters[pos])
+            }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -45,6 +47,12 @@ class CharacterAdapter(private val characters: List<MarvelCharacter>,
     }
 
     override fun getItemCount() = characters.size
+
+    fun addCharacters(newCharacters : List<MarvelCharacter>){
+        characters.addAll(newCharacters)
+        val count = newCharacters.size
+        notifyItemRangeInserted(characters.size-count,count)
+    }
 
 }
 interface CharacterClickListener{

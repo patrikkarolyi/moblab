@@ -11,4 +11,7 @@
         Duis fringilla orci vitae nunc semper, at ultricies ex ornare. Nam malesuada ornare suscipit. Donec et maximus
         erat. Proin ullamcorper pretium interdum.
     </string>
+    <string name="quit_question">Are you sure you want to quit the application ?</string>
+    <string name="quit">Quit</string>
+    <string name="cancel">Cancel</string>
 </resources>

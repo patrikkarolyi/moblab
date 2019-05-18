@@ -51,6 +51,8 @@ interface ComicApi {
 
     @GET("comics")
     fun getComics(
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int,
         @Query("ts") ts: Int,
         @Query("hash") hash: String,
         @Query("apikey") apikey: String

@@ -4,4 +4,5 @@ import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
 
 interface CharactersScreen {
     fun setCharacters(characters: List<MarvelCharacter>)
+    fun loading(loading : Boolean)
 }

@@ -31,7 +31,7 @@ class ComicDetailsFragment : Fragment() {
 
         detailsName.text = comics.title
 
-        val queryUrl = comics.thumbnail?.imageUrl(AspectRatio.Landscape, ImageSize.Amazing)
+        val queryUrl = comics.thumbnail?.imageUrl(AspectRatio.Portrait, ImageSize.Fantastic)
         Glide.with(context!!).load(queryUrl).into(detailsImage)
 
         detailsContent.text = comics.description
