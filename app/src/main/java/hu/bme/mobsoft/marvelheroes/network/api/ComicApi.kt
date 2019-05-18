@@ -40,6 +40,25 @@ interface ComicApi {
     ): Call<MarvelComicResponse>
 
     /**
+     * Get a comics
+     *
+     * @param ts
+     * @param hash
+     * @param apikey
+     * @param comicId ID of comic to return
+     * @return void
+     */
+
+    @GET("comics")
+    fun getComics(
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int,
+        @Query("ts") ts: Int,
+        @Query("hash") hash: String,
+        @Query("apikey") apikey: String
+    ): Call<MarvelComicResponse>
+
+    /**
      * Get hero related marvelComics
      *
      * @param ts

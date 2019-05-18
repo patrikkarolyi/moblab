@@ -1,13 +1,17 @@
 package hu.bme.mobsoft.marvelheroes.interactor.marvel
 
+import android.content.Context
+import android.net.ConnectivityManager
+import hu.bme.mobsoft.marvelheroes.db.MarvelRoomDatabase
 import hu.bme.mobsoft.marvelheroes.interactor.Contexts
+import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelCharacter
 import hu.bme.mobsoft.marvelheroes.network.NetworkConfig
 import hu.bme.mobsoft.marvelheroes.network.api.ComicApi
 import hu.bme.mobsoft.marvelheroes.model.marvelapi.MarvelComic
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ComicInteractor @Inject constructor(private var comicApi: ComicApi) {
+class ComicInteractor @Inject constructor(private var comicApi: ComicApi,val context: Context) {
 
     ///TODO error handling
     ///TODO calculate hash
@@ -21,6 +25,24 @@ class ComicInteractor @Inject constructor(private var comicApi: ComicApi) {
         response?.data?.results!!
     }
 
+    suspend fun getComics(offset : Int) : List<MarvelComic>  = withContext(Contexts.IO) {
+        when {
+            !checkInternetConnection() -> {
+                print("NONET")
+                MarvelRoomDatabase.getInstance(context).getComics()
+            }
+            else -> {
+                val timestamp = 1555350390
+                val apikey_public = NetworkConfig.APIKEY_PUBLIC
+                val apikey_private = NetworkConfig.APIKEY_PRIVATE
+                val hash = "a4c7f2c7ea5315021a7d7ad61e58d5e6" //timestamp.toString() + apikey_private + apikey_public
+                val response = comicApi.getComics(20,offset,timestamp,hash,apikey_public).execute().body()
+                response?.data?.results!!
+            }
+        }
+
+    }
+
     suspend fun getComicsOfCharacter(characterId : Int) : List<MarvelComic> = withContext(Contexts.IO) {
         val timestamp = 1555350390
         val apikey_public = NetworkConfig.APIKEY_PUBLIC
@@ -31,4 +53,14 @@ class ComicInteractor @Inject constructor(private var comicApi: ComicApi) {
 
     }
 
+    suspend fun saveComics(comics: List<MarvelComic>) = withContext(Contexts.IO) {
+        if(checkInternetConnection()){
+            MarvelRoomDatabase.getInstance(context).saveComics(comics)
+        }
+    }
+
+    private fun checkInternetConnection(): Boolean {
+        val info = (context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo
+        return info != null && info.isConnected
+    }
 }

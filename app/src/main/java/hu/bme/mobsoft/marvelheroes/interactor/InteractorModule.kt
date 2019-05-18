@@ -1,5 +1,6 @@
 package hu.bme.mobsoft.marvelheroes.interactor
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import hu.bme.mobsoft.marvelheroes.interactor.hero.HeroInteractor
@@ -15,11 +16,11 @@ class InteractorModule {
 
     @Provides
     @Singleton
-    fun provideCharacterInteractor(characterApi: CharacterApi) = CharacterInteractor(characterApi)
+    fun provideCharacterInteractor(characterApi: CharacterApi,context: Context) = CharacterInteractor(characterApi,context)
 
     @Provides
     @Singleton
-    fun provideComicInteractor(comicApi: ComicApi) = ComicInteractor(comicApi)
+    fun provideComicInteractor(comicApi: ComicApi,context: Context) = ComicInteractor(comicApi,context)
 
     @Provides
     @Singleton

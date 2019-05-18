@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">Marvel Heroes</string>
-    <string name="list_recent">Recent</string>
-    <string name="list_favorite">Favorite</string>
+    <string name="list_characters">Characters</string>
+    <string name="list_comics">Comics</string>
+    <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas molestie, elit eget
+        luctus tincidunt, felis neque varius purus, et fermentum dolor ex nec dolor. Phasellus id mollis nunc, ac
+        tincidunt tortor. Aenean id nunc tellus. Praesent porttitor lectus ac lacus ultricies accumsan. Phasellus
+        imperdiet lacus eu ultricies blandit. Duis luctus congue vulputate. In tristique, sapien at porttitor consequat,
+        nibh nisl scelerisque justo, rhoncus finibus odio lorem quis purus. Aliquam suscipit hendrerit sodales.
+        Pellentesque congue tortor dolor, quis vulputate massa mattis vitae. Donec consequat arcu ac bibendum viverra.
+        Duis fringilla orci vitae nunc semper, at ultricies ex ornare. Nam malesuada ornare suscipit. Donec et maximus
+        erat. Proin ullamcorper pretium interdum.
+    </string>
+    <string name="quit_question">Are you sure you want to quit the application ?</string>
+    <string name="quit">Quit</string>
+    <string name="cancel">Cancel</string>
 </resources>
